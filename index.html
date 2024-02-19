@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration Form</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-W/ev++RrSQ95B0IXxZyRIgH+ULkkQjbyDbng9+F/6q8Nf1N5Q9pS9j2BpA3h+X5gV4h8JtUOfJWz3JpVwjMD+A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  
+  <div class="container">
+    <h2 class="form-heading">Student Registration Form</h2>
+    <form id="registrationForm">
+
+      <div class="navbar">
+        <div class="menu-toggle" onclick="toggleSidebar()">
+            &#9776; <!-- Three-lined icon Unicode character -->
+        </div>
+        <div class="sidebar" id="sidebar">
+            <!-- Sidebar content goes here -->
+            <a href="https://kct.edu.np/">Home</a>
+            <a href="https://kct.edu.np/aboutus">About Us</a>
+            <a href="https://kct.edu.np/contact">Contact Us</a>
+            <a href="https://kct.edu.np/admission-procedure">Admission Procedure</a>
+            <a href="https://kct.edu.np/blog">Blogs</a>
+            <a href="https://kct.edu.np/gallery-category">Gallery</a>
+        </div>
+    </div>
+    
+    
+
+      <div class="input-group">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" placeholder="Enter Your FullName" required>
+      </div>
+
+      <div class="input-group">
+        <label for="personalAddress">Personal Address:</label>
+        <input type="text" id="personalAddress" placeholder="Enter Your Personal Address" required>
+      </div>
+
+      <div class="input-group">
+        <label for="mobileNo">Mobile No:</label>
+        <input type="tel" id="mobileNo" pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="Enter Your MobileNo" required>
+      </div>
+
+   
+     <div class="input-group">
+        <label for="gender">Gender</label>
+        <input type="radio" name="gender" id="male" required>Male
+        <input type="radio" name="gender" id="female" required>Female 
+     </div>
+  
+
+      <div class="input-group">
+        <label for="country">Country:</label>
+        <select id="country" required>
+          <option value="" disabled selected>Select a country</option>
+          <!-- Options populated dynamically using JavaScript -->
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="course">Course:</label>
+        <select id="course" required>
+          <option value="" disabled selected>Select a course</option>
+          <option value="BCA">BCA</option>
+          <option value="BScit">BScit</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="pincode">Pincode:</label>
+        <input type="tel" id="pincode" oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="Enter Your Pincode" required>
+      </div>
+
+      <div class="input-group">
+        <label for="email">Email ID:</label>
+        <input type="email" id="email" pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$" placeholder="Enter Your Email" required>
+      </div>
+
+      <div class="input-group">
+        <label for="education">Education:</label>
+        <select id="education" onchange="toggleGPASection()" required>
+          <option value="" disabled selected>Select Education</option>
+          <option value="+2">+2</option>
+          <option value="SEE">SEE</option>
+        </select>
+      </div>
+
+      <div id="plus2GPASection" class="input-group gpa-section" style="display: none;">
+        <label for="plus2GPA">+2 GPA:</label>
+        <input type="tel" id="plus2GPA" pattern="[0-9.]*" oninput="this.value = this.value.replace(/[^0-9.]/g, '')" placeholder="Enter +2 GPA" required>
+      </div>
+
+      <div id="seeGPASection" class="input-group gpa-section" style="display: none;">
+        <label for="seeGPA">SEE GPA:</label>
+        <input type="tel" id="seeGPA" pattern="[0-9.]*" oninput="this.value = this.value.replace(/[^0-9.]/g, '')" placeholder="Enter SEE GPA" required>
+      </div>
+
+      <div class="input-group">
+        <label for="scholarship">Are you interested for scholarship?</label>
+        <input type="radio" name="scholarship" id="Yes" onchange="toggleFileInput()" required>Yes
+        <input type="radio" name="scholarship" id="No" onchange="toggleFileInput()" required>No
+      </div>
+
+      <div id="fileInputContainer" class="input-group" style="display:none;">
+        <label for="fileInput">Attach Required Documents</label>
+        <input type="file" id="fileInput" accept=".pdf,.doc,.docx" onchange="validateFileSize()" required>
+        <p style="font-size: 12px; color: #999;"></p>
+        <p id="fileSizeMessage" class="fileSizeRequirement">File size should be less than 200KB</p>
+      </div>
+
+
+      <div class="buttons">
+        <button type="reset" onclick="handleFormReset()">Reset</button>
+        <button type="submit">Submit Form</button>
+      </div>
+
+     <!-- Help section with the "Need Help" button and the exclamation icon -->
+<div class="help-section">
+  <button id="needHelpBtn">Need Help</button>
+  <span id="exclamationIcon" onclick="showHelpPopup()">!</span>
+</div>
+
+<!-- Popup container -->
+<div id="helpPopup" class="popup">
+  <div class="popup-content">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <p>Having a hard time filling the form?</p>
+      <p>Follow these steps</p>
+      <p>Fillup the basic information like name,address</p>
+      <p>In the education sector select each options one by one and enter your GPA</p>
+      <p>If you are interested for scholarship select yes</p>
+      <p>Provide your academic documents</p>
+      <p>The document should be less than 200kb in size</p>
+      <p>Accepted Document format is pdf,doc,docx,png,jpg and jpeg</p>
+      <p>Submit the form after eveything is filled</p>
+      <p>If you still are still having problem please feel free to contact us</p>
+      
+  </div>
+</div>
+
+
+    </form>
+    <button class="modebtn" id="modeToggleBtn">&#128161;</button> <!-- Lightbulb Unicode character -->
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
