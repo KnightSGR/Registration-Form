@@ -1,29 +1,28 @@
-/* Global Styles */
 body {
   font-family: Arial, sans-serif;
   transition: background-color 0.5s, color 0.5s;
 background-color: #2b4162;
 background-image: linear-gradient(315deg, #2b4162 0%, #12100e 74%);
 }
-  
+
 .container {
-  max-width: 500px;
+  max-width: 50%;
   margin: 20px auto;
   padding: 20px;
   background-color: #19ecec;
   border-radius: 15px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: black;
 }
-.form-heading {
+.heading {
   text-align: center;
   font-size: 28px;
   margin-bottom: 20px;
-  color: #000;
+  color: black;
 }
 
-.input-group {
+.content {
   margin-bottom: 15px;
-  color: #000;
+  color: black;
 }
 
 label {
@@ -65,18 +64,17 @@ button {
 
 button[type="submit"] {
   background-color: #007bff;
-  color: #fff;
+  color: white;
 }
 
 button[type="reset"] {
   background-color: #dc3545;
-  color: #fff;
+  color: white;
 }
 
-/* Dark Mode Styles */
 .dark-mode body {
   background-color: #333;
-  color: #fff;
+  color: white;
 }
 
 .dark-mode .container {
@@ -84,13 +82,13 @@ button[type="reset"] {
 }
 
 .dark-mode label {
-  color: #fff; /* Color for radio options in dark mode */
+  color: white; 
 }
 
 .dark-mode input,
 .dark-mode select {
   background-color: black;
-  color: #fff;
+  color: white;
   border-color: #666;
 }
 
@@ -106,13 +104,12 @@ button[type="reset"] {
   bottom: 10px;
   left: 10px;
 }
-/* Add your CSS styles here */
 input[type="text"]::placeholder,
 input[type="email"]::placeholder,
 input[type="tel"]::placeholder,
 select::placeholder,
 textarea::placeholder {
-  color: black; /* Default placeholder color */
+  color: black; 
 }
 
 .dark-mode input[type="text"]::placeholder,
@@ -120,38 +117,37 @@ textarea::placeholder {
 .dark-mode input[type="tel"]::placeholder,
 .dark-mode select::placeholder,
 .dark-mode textarea::placeholder {
-  color: white; /* Dark mode placeholder color */
+  color: white;
 }
 .dark-mode input[type="text"],
 .dark-mode input[type="email"],
 .dark-mode input[type="tel"],
 .dark-mode select,
 .dark-mode textarea {
-  background-color: black; /* Background color inside the input fields in dark mode */
-  color: white; /* Text color inside the input fields in dark mode */
+  background-color: black; 
+  color: white;
 }
-/* Additional styling for better visibility of the input fields */
 .dark-mode input[type="text"],
 .dark-mode input[type="email"],
 .dark-mode input[type="tel"],
 .dark-mode select,
 .dark-mode textarea {
   padding: 8px;
-  border: 1px solid #fff; /* White border around input fields in dark mode */
+  border: 1px solid white; 
   border-radius: 5px;
   box-sizing: border-box;
 }
 
-.gpa-section {
+.gpasection {
   display: none;
 }
-/* Add your CSS styles here */
+
 .fileSizeRequirement {
   font-size: 12px;
   color: #999;
 }
 
-.help-section {
+.helpsection {
   position: fixed;
   bottom: 10px;
   right: 10px;
@@ -163,28 +159,25 @@ textarea::placeholder {
   cursor: pointer;
 }
 
-.dark-mode .form-heading {
-  color: #fff; /* Color in dark mode */
+.dark-mode .heading {
+  color: white;
 }
-.dark-mode .input-group {
-  color: #fff;
+.dark-mode .content {
+  color: white;
 }
 
-
-/* Style the popup container */
 .popup {
   display: none;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
-  z-index: 9999; /* Ensure the popup appears on top */
+  background-color: rgba(0, 0, 0, 0.8); 
+  z-index: 9999; 
   padding: 20px;
   color: white;
 }
 
-/* Style the close button */
 .close {
   position: absolute;
   top: 10px;
@@ -195,33 +188,7 @@ textarea::placeholder {
 }
 
 .close:hover {
-  color: #ccc; /* Change color on hover */
-}
-/* Style the popup container */
-.popup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
-  z-index: 9999; /* Ensure the popup appears on top */
-  padding: 20px;
-  color: white;
-}
-
-/* Style the close button */
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.close:hover {
-  color: #ccc; /* Change color on hover */
+  color: #ccc; 
 }
 
 .navbar {
@@ -229,31 +196,31 @@ textarea::placeholder {
   top: 0;
   left: 0;
   width: 0%;
-  color: #fff;
+  color: white;
   padding: 10px 20px;
 }
 
-.menu-toggle {
+.menutoggle {
   display: inline-block;
   cursor: pointer;
   margin-right: 20px;
-  font-size: 24px; /* Adjust the size as needed */
+  font-size: 24px;
 }
 
 .sidebar {
   position: fixed;
   top: 0;
-  left: -250px; /* Initially hidden */
+  left: -250px;
   width: 250px;
   height: 100%;
   background-color: #111;
-  padding-top: 60px; /* Adjust based on your navbar height */
+  padding-top: 60px; 
   transition: 0.4s;
 }
 
 .sidebar a {
   display: block;
-  color: #fff;
+  color: white;
   padding: 10px 20px;
   text-decoration: none;
 }
@@ -261,5 +228,70 @@ textarea::placeholder {
 .sidebar a:hover {
   background-color: #555;
 }
+footer {
+  background-color: #0d7ded;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
 
+footer p {
+  flex-basis: 100%; 
+  text-align: center;
+}
 
+footer .logo {
+  float:left;
+  width: 270px;
+  height: 100px;
+  padding-top: 60px;
+  padding-right: 100px;
+  padding-left: 350px;
+}
+
+footer .kctmap {
+  width: 50%;
+  margin-top: 10px;
+}
+
+iframe {
+  width: 500px;
+  height: 200px;
+  padding-left: 100px;
+}
+footer .footbar {
+  display: inline-block;
+  padding-right: 60px;
+  padding-top: 50px;
+  margin: 10px;
+  text-align: center;
+  flex-grow: 1;
+  width: 100%;
+}
+footer .footbar a {
+  color: #0d1013; 
+  text-decoration: none;
+  margin: 0 auto;
+}
+footer a:hover {
+  text-decoration: none; 
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
+.toplogo {
+  display: block;
+  margin: 0 auto;
+    max-width: 300px;
+    height: 60px;
+    margin-bottom: 20px; 
+}
+
+footer .fcopyright {
+  text-align: center;
+  width: 100%;
+  
+}
