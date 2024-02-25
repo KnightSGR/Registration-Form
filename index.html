@@ -4,21 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Student Registration Form</title>
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-W/ev++RrSQ95B0IXxZyRIgH+ULkkQjbyDbng9+F/6q8Nf1N5Q9pS9j2BpA3h+X5gV4h8JtUOfJWz3JpVwjMD+A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- <link rel="stylesheet" href="test.css"> -->
+<!-- <link rel="stylesheet" href="test2.css"> -->
+<!-- <link rel="stylesheet" href="navbartest.css"> -->
+<link rel="stylesheet" href="style.css">
+
 </head>
 <body>
   
+    <div>
+      <img src="images/kct-footer-logo.png" alt="Kct Logo" class="toplogo">
+    </div>
+
   <div class="container">
-    <h2 class="form-heading">Student Registration Form</h2>
+    <h1 class="heading">Student Registration Form</h1>
     <form id="registrationForm">
 
       <div class="navbar">
-        <div class="menu-toggle" onclick="toggleSidebar()">
-            &#9776; <!-- Three-lined icon Unicode character -->
+        <div class="menutoggle" onclick="toggleSidebar()">
+            &#9776;
         </div>
         <div class="sidebar" id="sidebar">
-            <!-- Sidebar content goes here -->
             <a href="https://kct.edu.np/">Home</a>
             <a href="https://kct.edu.np/aboutus">About Us</a>
             <a href="https://kct.edu.np/contact">Contact Us</a>
@@ -28,40 +34,36 @@
         </div>
     </div>
     
-    
-
-      <div class="input-group">
+      <div class="content">
         <label for="fullName">Full Name:</label>
         <input type="text" id="fullName" placeholder="Enter Your FullName" required>
       </div>
 
-      <div class="input-group">
+      <div class="content">
         <label for="personalAddress">Personal Address:</label>
         <input type="text" id="personalAddress" placeholder="Enter Your Personal Address" required>
       </div>
 
-      <div class="input-group">
+      <div class="content">
         <label for="mobileNo">Mobile No:</label>
-        <input type="tel" id="mobileNo" pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="Enter Your MobileNo" required>
+        <input type="tel" id="mobileNo" placeholder="Enter Your MobileNo" required>
       </div>
 
-   
-     <div class="input-group">
+     <div class="content">
         <label for="gender">Gender</label>
         <input type="radio" name="gender" id="male" required>Male
         <input type="radio" name="gender" id="female" required>Female 
      </div>
   
 
-      <div class="input-group">
-        <label for="country">Country:</label>
+      <div class="content">
+        <label for="country">country:</label>
         <select id="country" required>
           <option value="" disabled selected>Select a country</option>
-          <!-- Options populated dynamically using JavaScript -->
         </select>
       </div>
 
-      <div class="input-group">
+      <div class="content">
         <label for="course">Course:</label>
         <select id="course" required>
           <option value="" disabled selected>Select a course</option>
@@ -70,17 +72,12 @@
         </select>
       </div>
 
-      <div class="input-group">
-        <label for="pincode">Pincode:</label>
-        <input type="tel" id="pincode" oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="Enter Your Pincode" required>
-      </div>
-
-      <div class="input-group">
+       <div class="content">
         <label for="email">Email ID:</label>
-        <input type="email" id="email" pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$" placeholder="Enter Your Email" required>
-      </div>
+        <input type="text" id="email" placeholder="Enter Your Email" required>
+      </div> 
 
-      <div class="input-group">
+      <div class="content">
         <label for="education">Education:</label>
         <select id="education" onchange="toggleGPASection()" required>
           <option value="" disabled selected>Select Education</option>
@@ -89,44 +86,40 @@
         </select>
       </div>
 
-      <div id="plus2GPASection" class="input-group gpa-section" style="display: none;">
+      <div id="plus2GPASection" class="content gpasection" style="display: none;">
         <label for="plus2GPA">+2 GPA:</label>
-        <input type="tel" id="plus2GPA" pattern="[0-9.]*" oninput="this.value = this.value.replace(/[^0-9.]/g, '')" placeholder="Enter +2 GPA" required>
+        <input type="tel" id="plus2GPA" placeholder="Enter +2 GPA" required>
       </div>
 
-      <div id="seeGPASection" class="input-group gpa-section" style="display: none;">
+      <div id="seeGPASection" class="content gpasection" style="display: none;">
         <label for="seeGPA">SEE GPA:</label>
-        <input type="tel" id="seeGPA" pattern="[0-9.]*" oninput="this.value = this.value.replace(/[^0-9.]/g, '')" placeholder="Enter SEE GPA" required>
+        <input type="tel" id="seeGPA" placeholder="Enter SEE GPA" required>
       </div>
 
-      <div class="input-group">
+      <div class="content">
         <label for="scholarship">Are you interested for scholarship?</label>
         <input type="radio" name="scholarship" id="Yes" onchange="toggleFileInput()" required>Yes
         <input type="radio" name="scholarship" id="No" onchange="toggleFileInput()" required>No
       </div>
 
-      <div id="fileInputContainer" class="input-group" style="display:none;">
+      <div id="fileInputContainer" class="content" style="display:none;">
         <label for="fileInput">Attach Required Documents</label>
-        <input type="file" id="fileInput" accept=".pdf,.doc,.docx" onchange="validateFileSize()" required>
-        <p style="font-size: 12px; color: #999;"></p>
+        <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" onchange="validateFileSize()" required>
+        <p style="font-size: 12px; color: gray;"></p>
         <p id="fileSizeMessage" class="fileSizeRequirement">File size should be less than 200KB</p>
       </div>
-
 
       <div class="buttons">
         <button type="reset" onclick="handleFormReset()">Reset</button>
         <button type="submit">Submit Form</button>
       </div>
 
-     <!-- Help section with the "Need Help" button and the exclamation icon -->
-<div class="help-section">
-  <button id="needHelpBtn">Need Help</button>
-  <span id="exclamationIcon" onclick="showHelpPopup()">!</span>
+<div class="helpsection">
+  <button id="needHelpBtn" onclick="showHelpPopup()">Need Help</button>
 </div>
 
-<!-- Popup container -->
 <div id="helpPopup" class="popup">
-  <div class="popup-content">
+  <div class="popupcontent">
       <span class="close" onclick="closePopup()">&times;</span>
       <p>Having a hard time filling the form?</p>
       <p>Follow these steps</p>
@@ -138,15 +131,213 @@
       <p>Accepted Document format is pdf,doc,docx,png,jpg and jpeg</p>
       <p>Submit the form after eveything is filled</p>
       <p>If you still are still having problem please feel free to contact us</p>
-      
   </div>
 </div>
-
-
     </form>
-    <button class="modebtn" id="modeToggleBtn">&#128161;</button> <!-- Lightbulb Unicode character -->
+
+    <button class="modebtn" id="modeToggleBtn">&#128161;</button>
   </div>
 
+  <footer>
+    <p>Thank you for choosing us. Your information is secure with us. If you have any questions or need assistance, please don't hesitate to contact us at <a href="mailto:info@kct.edu.np
+      ">info@kct.edu.np</a>.</p>
+        
+      <img src="images/kct-logo.png" alt="KCT logo" class="logo">
+
+      <div class="kctmap">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16806.68574318095!2d85.34209923886984!3d27.681126322826206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1bb1c2cac4e7%3A0xba4452c1da540a20!2sKathmandu%20College%20of%20Technology!5e0!3m2!1sen!2snp!4v1693730652606!5m2!1sen!2snp" width="220" height="220" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <div class="footbar" id="footbar" >
+        <ul type="none"  >
+        <li><a href="https://kct.edu.np/aboutus" >About Us</a></li>
+        <li><a href="https://kct.edu.np/admission-procedure">Admission Procedure</a></li>
+        <li><a href="https://kct.edu.np/facilities-list">Facilities</a></li>
+        <li><a href="https://kct.edu.np/event-list">Notices & Events</a></li>
+        </ul>
+      </div>
+
+      <div class="fcopyright">
+        <p>Copyright © 2024 <a href="https://kct.edu.np/" target="_blank">KCT college</a>. <br><br>
+          Designed by <b> Sudin Rai </b> All rights reserved.</p>
+      </div>
+
+  </footer>
+<!-- <script src="darkmodetest.js"></script> -->
+<!-- <script src="navbartest.js"></script> -->
+<!-- <script src="test2.js"></script> -->
 <script src="script.js"></script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration Form</title>
+<!-- <link rel="stylesheet" href="test.css"> -->
+<!-- <link rel="stylesheet" href="test2.css"> -->
+<!-- <link rel="stylesheet" href="navbartest.css"> -->
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  
+    <div>
+      <img src="images/kct-footer-logo.png" alt="Kct Logo" class="toplogo">
+    </div>
+
+  <div class="container">
+    <h1 class="heading">Student Registration Form</h1>
+    <form id="registrationForm">
+
+      <div class="navbar">
+        <div class="menutoggle" onclick="toggleSidebar()">
+            &#9776;
+        </div>
+        <div class="sidebar" id="sidebar">
+            <a href="https://kct.edu.np/">Home</a>
+            <a href="https://kct.edu.np/aboutus">About Us</a>
+            <a href="https://kct.edu.np/contact">Contact Us</a>
+            <a href="https://kct.edu.np/admission-procedure">Admission Procedure</a>
+            <a href="https://kct.edu.np/blog">Blogs</a>
+            <a href="https://kct.edu.np/gallery-category">Gallery</a>
+        </div>
+    </div>
+    
+      <div class="content">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" placeholder="Enter Your FullName" required>
+      </div>
+
+      <div class="content">
+        <label for="personalAddress">Personal Address:</label>
+        <input type="text" id="personalAddress" placeholder="Enter Your Personal Address" required>
+      </div>
+
+      <div class="content">
+        <label for="mobileNo">Mobile No:</label>
+        <input type="tel" id="mobileNo" placeholder="Enter Your MobileNo" required>
+      </div>
+
+     <div class="content">
+        <label for="gender">Gender</label>
+        <input type="radio" name="gender" id="male" required>Male
+        <input type="radio" name="gender" id="female" required>Female 
+     </div>
+  
+
+      <div class="content">
+        <label for="country">country:</label>
+        <select id="country" required>
+          <option value="" disabled selected>Select a country</option>
+        </select>
+      </div>
+
+      <div class="content">
+        <label for="course">Course:</label>
+        <select id="course" required>
+          <option value="" disabled selected>Select a course</option>
+          <option value="BCA">BCA</option>
+          <option value="BScit">BScit</option>
+        </select>
+      </div>
+
+       <div class="content">
+        <label for="email">Email ID:</label>
+        <input type="text" id="email" placeholder="Enter Your Email" required>
+      </div> 
+
+      <div class="content">
+        <label for="education">Education:</label>
+        <select id="education" onchange="toggleGPASection()" required>
+          <option value="" disabled selected>Select Education</option>
+          <option value="+2">+2</option>
+          <option value="SEE">SEE</option>
+        </select>
+      </div>
+
+      <div id="plus2GPASection" class="content gpasection" style="display: none;">
+        <label for="plus2GPA">+2 GPA:</label>
+        <input type="tel" id="plus2GPA" placeholder="Enter +2 GPA" required>
+      </div>
+
+      <div id="seeGPASection" class="content gpasection" style="display: none;">
+        <label for="seeGPA">SEE GPA:</label>
+        <input type="tel" id="seeGPA" placeholder="Enter SEE GPA" required>
+      </div>
+
+      <div class="content">
+        <label for="scholarship">Are you interested for scholarship?</label>
+        <input type="radio" name="scholarship" id="Yes" onchange="toggleFileInput()" required>Yes
+        <input type="radio" name="scholarship" id="No" onchange="toggleFileInput()" required>No
+      </div>
+
+      <div id="fileInputContainer" class="content" style="display:none;">
+        <label for="fileInput">Attach Required Documents</label>
+        <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" onchange="validateFileSize()" required>
+        <p style="font-size: 12px; color: gray;"></p>
+        <p id="fileSizeMessage" class="fileSizeRequirement">File size should be less than 200KB</p>
+      </div>
+
+      <div class="buttons">
+        <button type="reset" onclick="handleFormReset()">Reset</button>
+        <button type="submit">Submit Form</button>
+      </div>
+
+<div class="helpsection">
+  <button id="needHelpBtn" onclick="showHelpPopup()">Need Help</button>
+</div>
+
+<div id="helpPopup" class="popup">
+  <div class="popupcontent">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <p>Having a hard time filling the form?</p>
+      <p>Follow these steps</p>
+      <p>Fillup the basic information like name,address</p>
+      <p>In the education sector select each options one by one and enter your GPA</p>
+      <p>If you are interested for scholarship select yes</p>
+      <p>Provide your academic documents</p>
+      <p>The document should be less than 200kb in size</p>
+      <p>Accepted Document format is pdf,doc,docx,png,jpg and jpeg</p>
+      <p>Submit the form after eveything is filled</p>
+      <p>If you still are still having problem please feel free to contact us</p>
+  </div>
+</div>
+    </form>
+
+    <button class="modebtn" id="modeToggleBtn">&#128161;</button>
+  </div>
+
+  <footer>
+    <p>Thank you for choosing us. Your information is secure with us. If you have any questions or need assistance, please don't hesitate to contact us at <a href="mailto:info@kct.edu.np
+      ">info@kct.edu.np</a>.</p>
+        
+      <img src="images/kct-logo.png" alt="KCT logo" class="logo">
+
+      <div class="kctmap">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16806.68574318095!2d85.34209923886984!3d27.681126322826206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1bb1c2cac4e7%3A0xba4452c1da540a20!2sKathmandu%20College%20of%20Technology!5e0!3m2!1sen!2snp!4v1693730652606!5m2!1sen!2snp" width="220" height="220" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <div class="footbar" id="footbar" >
+        <ul type="none"  >
+        <li><a href="https://kct.edu.np/aboutus" >About Us</a></li>
+        <li><a href="https://kct.edu.np/admission-procedure">Admission Procedure</a></li>
+        <li><a href="https://kct.edu.np/facilities-list">Facilities</a></li>
+        <li><a href="https://kct.edu.np/event-list">Notices & Events</a></li>
+        </ul>
+      </div>
+
+      <div class="fcopyright">
+        <p>Copyright © 2024 <a href="https://kct.edu.np/" target="_blank">KCT college</a>. <br><br>
+          Designed by <b> Sudin Rai </b> All rights reserved.</p>
+      </div>
+
+  </footer>
+<!-- <script src="darkmodetest.js"></script> -->
+<!-- <script src="navbartest.js"></script> -->
+<!-- <script src="test2.js"></script> -->
+<script src="script.js"></script>
+
 </body>
 </html>
